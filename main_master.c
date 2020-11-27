@@ -191,8 +191,8 @@ static void app_task(void *param)
         if((msg.DATA % 5) == 0)
         {
         	(void)PRINTF("Waiting for temp...\r\n");
-        	(void)rpmsg_queue_recv(my_rpmsg, my_queue, (uint32_t *)&remote_addr, (char *)&temp, sizeof(THE_MESSAGE),
-        	                               ((void *)0), RL_BLOCK);
+        	(void)rpmsg_queue_recv(my_rpmsg, my_queue, (uint32_t *)&remote_addr, (char *)&temp, sizeof(THE_MESSAGE), &len,
+        	                               , RL_BLOCK);
 
         	(void)PRINTF("Temperature Value: %d", temp.DATA);
         }
